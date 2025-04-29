@@ -4,11 +4,14 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:weather_clock/pages/get_failed/get_failed_binding.dart';
+import 'package:weather_clock/pages/get_failed/get_failed_set.dart';
 import 'package:weather_clock/pages/get_failed/get_failed_view.dart';
 import 'package:weather_clock/pages/weather_clock_main/weather_clock_main_binding.dart';
 import 'package:weather_clock/pages/weather_clock_main/weather_clock_main_view.dart';
 import 'package:weather_clock/pages/weather_setting/weather_setting_binding.dart';
 import 'package:weather_clock/pages/weather_setting/weather_setting_view.dart';
+import 'package:weather_clock/pages/weather_tab/weather_tab_binding.dart';
+import 'package:weather_clock/pages/weather_tab/weather_tab_view.dart';
 
 Color primaryColor = Colors.black;
 Color bgColor = Colors.black;
@@ -35,7 +38,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: Weather,
-      initialRoute: '/weather_main',
+      initialRoute: '/weather_tab',
       theme: ThemeData(
         useMaterial3: true,
         primaryColor: primaryColor,
@@ -87,7 +90,9 @@ class MyApp extends StatelessWidget {
   }
 }
 List<GetPage<dynamic>> Weather = [
+  GetPage(name: '/weather_tab', page: () => const WeatherTabView(), binding: WeatherTabBinding()),
   GetPage(name: '/get_failed', page: () => const GetFailedView(), binding: GetFailedBinding()),
+  GetPage(name: '/get_restart', page: () => const GetFailedSet()),
   GetPage(name: '/weather_main', page: () => const WeatherClockMainPage(), binding: WeatherClockMainBinding()),
   GetPage(name: '/weather_setting', page: () => WeatherSettingPage(), binding: WeatherSettingBinding()),
 ];

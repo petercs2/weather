@@ -11,7 +11,7 @@ class WeatherTabView extends GetView<WeatherTabLogic> {
     return Scaffold(
       body: Center(
         child: Obx(
-          () => controller.rath.value
+          () => controller.dare.value
               ? const CircularProgressIndicator(color: Colors.blueAccent)
               : buildError(),
         ),
@@ -26,7 +26,7 @@ class WeatherTabView extends GetView<WeatherTabLogic> {
         children: [
           IconButton(
             onPressed: () {
-              controller.buql();
+              controller.tqgc();
             },
             icon: const Icon(
               Icons.restart_alt,

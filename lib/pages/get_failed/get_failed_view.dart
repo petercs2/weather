@@ -25,7 +25,7 @@ class GetFailedView extends GetView<GetFailedLogic> {
               height: 30,
             ),
             Image.asset(
-              'assets/noNetwork.webp',
+              'assets/error_icon.webp',
               width: 88,
               height: 85,
               fit: BoxFit.cover,

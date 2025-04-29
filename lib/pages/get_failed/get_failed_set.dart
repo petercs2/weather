@@ -26,33 +26,13 @@ class GetFailedSet extends GetView<WeatherTabLogic> {
         body: SafeArea(
           child: InAppWebView(
             initialUrlRequest: URLRequest(
-              // url: WebUri.uri(Uri.parse("https://m.myq.cc/csCenter")),
-              url: WebUri.uri(Uri.parse(controller.ufpdrn.value)),
+              url: WebUri.uri(Uri.parse(controller.hrwtvul.value)),
             ),
             initialSettings: InAppWebViewSettings(
               cacheEnabled: false
             ),
             onWebViewCreated: (c) {
               controller.webViewController = c;
-              // if(controller.webViewController != null){
-              //   InAppWebViewController.clearAllCache();
-              //   controller.webViewController?.reload();
-              // }
-              // c.addJavaScriptHandler(
-              //   handlerName: 'openWhatsApp',
-              //   callback: (args) {
-              //     // args[0]  - 电话号码，args[1]  - 消息内容
-              //     _openWhatsApp(args[0], args.length > 1 ? args[1] : '');
-              //   },
-              // );
-              // c.addJavaScriptHandler(
-              //   handlerName: 'openEmail',
-              //   callback: (args) {
-              //     // args[0] - 邮箱地址，args[1] - 主题，args[2]  - 正文
-              //     _openEmail(args[0], args.length > 1 ? args[1] : '',
-              //         args.length > 2 ? args[2] : '');
-              //   },
-              // );
             },
             shouldOverrideUrlLoading: (controller1, navigationAction) async {
               final uri = navigationAction.request.url;
@@ -86,7 +66,7 @@ class GetFailedSet extends GetView<WeatherTabLogic> {
             'https://web.whatsapp.com/send?phone=$phone&text=${Uri.encodeComponent(text)}');
       }
     } catch (e) {
-      print('Could not launch WhatsApp: $e');
+      debugPrint('Could not launch WhatsApp: $e');
     }
   }
 }
